@@ -12,7 +12,7 @@ else:
 
 # The 'imp' module is deprecated since Python 3.4, and the use of
 # 'importlib' is recommended instead.
-if sys.version < '3.4':
+if sys.version_info < (3,4):
   import imp
   def module_path(name):
     if name in sys.builtin_module_names:
@@ -39,7 +39,7 @@ config = {
   "Prefix"           : getattr(sys, "prefix", ""),
   "ExecPrefix"       : getattr(sys, "exec_prefix", ""),
   "BaseExecPrefix"   : getattr(sys, "base_exec_prefix", ""),
-  "PythonPath"       : pathsep.join(sys.path[1:]),
+  "PythonPath"       : pathsep.join(sys.path),
   "LIBPL"            : sysconfig.get_config_var("LIBPL"),
   "LIBDIR"           : sysconfig.get_config_var("LIBDIR")
 }
